@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . /app/
 
-EXPOSE 3000
+ENV PORT 3000
 
-CMD ["npm", "nodemon", "dev"]
+EXPOSE $PORT
+
+CMD ["npm", "run", "dev"]
