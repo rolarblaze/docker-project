@@ -6,4 +6,21 @@ services:
       - "3000:3000"
     environment:
       - PORT=3000
+  jenkins:
+    image: jenkins/jenkins:lts
+    restart: always
+    priviledge: true
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    container_name: jenkins
+    volumes:
+      - C:\Users\Roland\Documents\docker\docker-node\docker-project\:/var/jenkin_home:ro
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME="admin"
+      - MONGO_INITDB_ROOT_PASSWORD="mypass"
       
